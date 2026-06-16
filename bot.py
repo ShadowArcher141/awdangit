@@ -1,4 +1,5 @@
 import os
+import random
 
 import discord
 from discord.ext import commands
@@ -31,6 +32,13 @@ async def ping(ctx: commands.Context):
 @bot.command(name="squeak")
 async def ping(ctx: commands.Context):
     await ctx.send("Squirrels are the very ever so best creatures to ever walk the lands of earth and must be respected and protected at all costs. Anyone who disrespects them deserves to burn forever in hell!")
+
+# chen is very very dum and doobid
+@bot.command(name="roll[20]")
+async def ping(ctx: commands.Context):
+    """Roll a d20 and reply with the result."""
+    result = random.randint(1, 20)
+    await ctx.send(f"You rolled a {result}!")
 
 if __name__ == "__main__":
     bot.run(TOKEN)
