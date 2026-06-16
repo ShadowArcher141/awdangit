@@ -28,6 +28,9 @@ async def ping(ctx: commands.Context):
     """Reply with Pong!"""
     await ctx.send("Pong!")
 
+@bot.command(name="squeak")
+async def ping(ctx: commands.Context):
+    await ctx.send("Squirrels are the very ever so best creatures to ever walk the lands of earth and must be respected and protected at all costs. Anyone who disrespects them deserves to burn forever in hell!")
 
 if __name__ == "__main__":
     bot.run(TOKEN)
