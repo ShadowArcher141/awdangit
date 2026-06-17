@@ -89,7 +89,7 @@ async def rng(ctx: commands.Context, pulls: int, rerolls: int):
         rows = []
         for k in range(0, len(cutOff), 9):
             rows.append(" ".join(str(x) for x in cutOff[k : k + 9]))
-        await ctx.send(f"```{'\n'.join(rows)}```")
+        await ctx.send("```" + "\n".join(rows) + "```")
         if rerolls - i != 0:
             await ctx.send(f"Do you want to reroll? (y/n), {rerolls - i} rerolls")
             response = await bot.wait_for("message", check=check)
@@ -97,12 +97,6 @@ async def rng(ctx: commands.Context, pulls: int, rerolls: int):
                 continue
             else:
                 break
-
-
-async def squirrel(ctx: commands.Context):
-    await ctx.send(
-        "Squirrels are the very ever so best creatures to ever walk the lands of earth and must be respected and protected at all costs. Anyone who disrespects them deserves to burn forever in hell!"
-    )
 
 
 @bot.command(
