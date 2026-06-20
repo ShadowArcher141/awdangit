@@ -96,7 +96,7 @@ async def rng(ctx: commands.Context, pulls: int, rerolls: int):
         rows = []
         for k in range(0, len(cutOff), 9):
             rows.append(" ".join(str(x) for x in cutOff[k : k + 9]))
-        await ctx.send(f"```{'\n'.join(rows)}```")
+        await ctx.send("```" + "\n".join(rows) + "```")
         if rerolls - i != 0:
             await ctx.send(f"Do you want to reroll? (y/n), {rerolls - i} rerolls")
             response = await bot.wait_for("message", check=check)
