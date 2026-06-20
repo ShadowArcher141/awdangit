@@ -1,4 +1,5 @@
 import os
+import time
 
 import math
 import random
@@ -26,6 +27,12 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user} ({bot.user.id})")
+
+
+@bot.event
+async def on_command_error(ctx: commands.Context, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Unknown command.")
 
 
 @bot.command(name="ping")
@@ -97,6 +104,37 @@ async def rng(ctx: commands.Context, pulls: int, rerolls: int):
                 continue
             else:
                 break
+
+
+async def squirrel(ctx: commands.Context):
+    await ctx.send(
+        "Squirrels are the very ever so best creatures to ever walk the lands of earth and must be respected and protected at all costs. Anyone who disrespects them deserves to burn forever in hell!"
+    )
+
+
+counter = 0
+
+
+@bot.command(name="howevil")
+async def evil(ctx: commands.Context):
+    global counter
+    counter += 1
+    returnString = "How evil you ask? Squirrls are " + counter * "very " + "evil!"
+    await ctx.send(returnString)
+
+
+@bot.command(name="flip")
+async def flip(ctx: commands.Context):
+
+    await ctx.send("Flipping a coin! Head I win, tails you lose.")
+    flip = random.randint(0, 1)
+    if flip == 1:
+        flip = "heads"
+    else:
+        flip = "tails"
+
+    time.sleep(2)
+    await ctx.send(f"The results is {flip}! I win! You're a noob.")
 
 
 @bot.command(
